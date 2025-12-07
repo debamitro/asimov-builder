@@ -1,6 +1,6 @@
 export VSCODE_CLI_APP_NAME="void"
 export VSCODE_CLI_BINARY_NAME="void-server"
-export VSCODE_CLI_DOWNLOAD_URL="https://github.com/voideditor/void/releases"
+export VSCODE_CLI_DOWNLOAD_URL="https://github.com/debamitro/asimov/releases"
 export VSCODE_CLI_QUALITY="stable"
 export VSCODE_CLI_UPDATE_URL="https://raw.githubusercontent.com/voideditor/versions/refs/heads/main"
 

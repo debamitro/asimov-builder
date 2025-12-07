@@ -12,7 +12,7 @@ export VSCODE_CLI_UPDATE_ENDPOINT="https://raw.githubusercontent.com/voideditor/
 if [[ "${VSCODE_QUALITY}" == "insider" ]]; then
   export VSCODE_CLI_DOWNLOAD_ENDPOINT="https://github.com/voideditor/void-insiders/releases"
 else
-  export VSCODE_CLI_DOWNLOAD_ENDPOINT="https://github.com/voideditor/void/releases" # Void
+  export VSCODE_CLI_DOWNLOAD_ENDPOINT="https://github.com/debamitro/asimov/releases" # Void
 fi
 
 TUNNEL_APPLICATION_NAME="$( node -p "require(\"../product.json\").tunnelApplicationName" )"

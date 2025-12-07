@@ -17,7 +17,7 @@ if [[ "${SHOULD_BUILD}" == "yes" ]]; then
   # Skip monaco-compile-check as it's failing due to searchUrl property
   # Skip valid-layers-check as well since it might depend on monaco
   # Void commented these out
-  # npm run monaco-compile-check
+  npm run monaco-compile-check
   # npm run valid-layers-check
 
   npm run buildreact
@@ -33,6 +33,9 @@ if [[ "${SHOULD_BUILD}" == "yes" ]]; then
     npm run gulp "vscode-darwin-${VSCODE_ARCH}-min-ci"
 
     find "../VSCode-darwin-${VSCODE_ARCH}" -print0 | xargs -0 touch -c
+
+    SHOULD_BUILD_REH="no"
+    SHOULD_BUILD_REH_WEB="no"
 
     . ../build_cli.sh
 

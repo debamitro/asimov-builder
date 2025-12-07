@@ -43,10 +43,10 @@ export SHOULD_BUILD=yes
 #. check_cron_or_pr.sh
 
 # Step 4
-if [[ "$SHOULD_DEPLOY" == "yes" ]]; then
+#if [[ "$SHOULD_DEPLOY" == "yes" ]]; then
 #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #. check_tags.sh
-fi
+#fi
 
 # Step 5
 if [[ "$SHOULD_BUILD" == "yes" ]]; then
@@ -75,6 +75,6 @@ if [[ "$SHOULD_DEPLOY" == "yes" ]]; then
 #          FORCE_UPDATE: ${{ github.event.inputs.force_version }}
 #          GITHUB_TOKEN: ${{ secrets.STRONGER_GITHUB_TOKEN }}
 #          GITHUB_USERNAME: ${{ github.repository_owner }}
-#./update_version.sh
+./update_version.sh
 fi
 

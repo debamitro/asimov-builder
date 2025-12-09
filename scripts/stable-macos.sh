@@ -17,7 +17,7 @@ export BINARY_NAME=asimov
 export OS_NAME=osx
 #VERSIONS_REPOSITORY: ${{ github.repository_owner }}/versions
 export VSCODE_QUALITY=stable
-export VSCODE_ARCH=arm64
+export VSCODE_ARCH="${VSCODE_ARCH:-arm64}"
 
 export CI_BUILD=no
 export GITHUB_REPOSITORY=

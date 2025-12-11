@@ -48,15 +48,13 @@ fi
 
 MS_TAG=$( jq -r '.version' "package.json" )
 MS_COMMIT=$VOID_BRANCH # Void - MS_COMMIT doesn't seem to do much
+ASIMOV_VERSION=$( jq -r '.asimovVersion' "product.json" )
 VOID_VERSION=$( jq -r '.voidVersion' "product.json" ) # Void added this
 
-if [[ -n "${VOID_RELEASE}" ]]; then # Void added VOID_RELEASE as optional to bump manually
-  RELEASE_VERSION="${MS_TAG}${VOID_RELEASE}"
-else
-  VOID_RELEASE=$( jq -r '.voidRelease' "product.json" )
-  RELEASE_VERSION="${MS_TAG}${VOID_RELEASE}"
+if [[ -z "${ASIMOV_RELEASE}" ]]; then
+  ASIMOV_RELEASE=$( jq -r '.asimovRelease' "product.json" )
 fi
-# Void - RELEASE_VERSION is later used as version (1.0.3+RELEASE_VERSION), so it MUST be a number or it will throw a semver error in void
+RELEASE_VERSION="${MS_TAG}-${ASIMOV_VERSION}-${ASIMOV_RELEASE}"
 
 
 echo "RELEASE_VERSION=\"${RELEASE_VERSION}\""
@@ -79,11 +77,11 @@ echo "----------- get_repo exports -----------"
 echo "MS_TAG ${MS_TAG}"
 echo "MS_COMMIT ${MS_COMMIT}"
 echo "RELEASE_VERSION ${RELEASE_VERSION}"
-echo "VOID VERSION ${VOID_VERSION}"
+echo "ASIMOV VERSION ${ASIMOV_VERSION}"
 echo "----------------------"
 
 
 export MS_TAG
 export MS_COMMIT
 export RELEASE_VERSION
-export VOID_VERSION
+export ASIMOV_VERSION

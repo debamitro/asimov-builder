@@ -21,11 +21,10 @@ export VSCODE_ARCH="${VSCODE_ARCH:-arm64}"
 
 export CI_BUILD=no
 export GITHUB_REPOSITORY=
-export RELEASE_VERSION=
 export VSCODE_LATEST=
 export GITHUB_ENV=
 
-export SHOULD_DEPLOY=no
+export SHOULD_DEPLOY=yes
 export SHOULD_BUILD=yes
 
 
@@ -50,31 +49,30 @@ export SHOULD_BUILD=yes
 
 # Step 5
 if [[ "$SHOULD_BUILD" == "yes" ]]; then
-#GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-./build.sh
+  ./build.sh
 fi
 
 # Step 6
 if [[ "$SHOULD_BUILD" == "yes" && "$SHOULD_DEPLOY" == "yes" ]]; then
-#          CERTIFICATE_OSX_APP_PASSWORD: ${{ secrets.CERTIFICATE_OSX_NEW_APP_PASSWORD }}
-#          CERTIFICATE_OSX_ID: ${{ secrets.CERTIFICATE_OSX_NEW_ID }}
-#          CERTIFICATE_OSX_P12_DATA: ${{ secrets.CERTIFICATE_OSX_NEW_P12_DATA }}
-#          CERTIFICATE_OSX_P12_PASSWORD: ${{ secrets.CERTIFICATE_OSX_NEW_P12_PASSWORD }}
-#          CERTIFICATE_OSX_TEAM_ID: ${{ secrets.CERTIFICATE_OSX_NEW_TEAM_ID }}
-./prepare_assets.sh
+export CERTIFICATE_OSX_APP_PASSWORD=
+export CERTIFICATE_OSX_ID=
+export CERTIFICATE_OSX_P12_DATA=
+export CERTIFICATE_OSX_P12_PASSWORD=
+export CERTIFICATE_OSX_TEAM_ID=
+  ./prepare_assets.sh
 fi
 
 # Step 7
-if [[ "$SHOULD_BUILD" == "yes" && "$SHOULD_DEPLOY" == "yes" ]]; then
+#if [[ "$SHOULD_BUILD" == "yes" && "$SHOULD_DEPLOY" == "yes" ]]; then
 #          GITHUB_TOKEN: ${{ secrets.STRONGER_GITHUB_TOKEN }} # Void bumped this to stronger
-./release.sh
+#./release.sh
 fi
 
 # Step 8
-if [[ "$SHOULD_DEPLOY" == "yes" ]]; then
+#if [[ "$SHOULD_DEPLOY" == "yes" ]]; then
 #          FORCE_UPDATE: ${{ github.event.inputs.force_version }}
 #          GITHUB_TOKEN: ${{ secrets.STRONGER_GITHUB_TOKEN }}
 #          GITHUB_USERNAME: ${{ github.repository_owner }}
-./update_version.sh
-fi
+#./update_version.sh
+#fi
 

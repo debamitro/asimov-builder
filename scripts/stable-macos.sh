@@ -52,6 +52,9 @@ if [[ "$SHOULD_BUILD" == "yes" ]]; then
   ./build.sh
 fi
 
+export SHOULD_BUILD_REH=no
+export SHOULD_BUILD_REH_WEB=no
+
 # Step 6
 if [[ "$SHOULD_BUILD" == "yes" && "$SHOULD_DEPLOY" == "yes" ]]; then
 export CERTIFICATE_OSX_APP_PASSWORD=
@@ -66,7 +69,7 @@ fi
 #if [[ "$SHOULD_BUILD" == "yes" && "$SHOULD_DEPLOY" == "yes" ]]; then
 #          GITHUB_TOKEN: ${{ secrets.STRONGER_GITHUB_TOKEN }} # Void bumped this to stronger
 #./release.sh
-fi
+#fi
 
 # Step 8
 #if [[ "$SHOULD_DEPLOY" == "yes" ]]; then

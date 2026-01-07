@@ -24,7 +24,7 @@ export GITHUB_REPOSITORY=
 export VSCODE_LATEST=
 export GITHUB_ENV=
 
-export SHOULD_DEPLOY=yes
+export SHOULD_DEPLOY="${SHOULD_DEPLOY:yes}"
 export SHOULD_BUILD=yes
 
 

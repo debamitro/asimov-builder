@@ -13,7 +13,7 @@ Make sure you have nodejs, npm and jq on your system.
 Then all you do is
 
 ```sh
-./scripts/stable-macos.sh ## for Apple Silicon
-VSCODE_ARCH=x64 ./scripts/stable-macos.sh ## for Intel
+SHOULD_DEPLOY=no ./scripts/stable-macos.sh ## for Apple Silicon
+VSCODE_ARCH=x64 SHOULD_DEPLOY=no ./scripts/stable-macos.sh ## for Intel
 ```
  
